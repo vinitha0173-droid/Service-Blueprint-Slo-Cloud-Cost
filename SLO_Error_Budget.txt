@@ -1,0 +1,34 @@
+SLO, SLI and Error Budget Plan:
+
+1. Service Level Indicators (SLIs):
+- Availability: Percentage of valid requests successfully served.
+- Latency: Percentage of requests completed within the target response time.
+- Error rate: Percentage of requests that fail.
+
+2. Service Level Objectives (SLOs):
+
+Scenario	Availability Target	p95 Latency Target	Monthly Error Budget
+ Lean	99%	800 ms	432 minutes
+ Balanced	99.5% 	500 ms 	216 minutes
+ Resilient	99.9% 	300 ms	43.2 minutes 
+
+Error budget is the permitted downtime within a 30-day month, calculated from the availability target.
+
+3. Recovery Objectives:
+- Lean: RPO 24 hours; RTO 240 minutes.
+- Balanced: RPO 60 minutes; RTO 60 minutes.
+- Resilient: RPO 15 minutes; RTO 30 minutes.
+
+RPO defines the maximum acceptable data loss period. RTO defines the target time to restore service.
+
+4. Alerting and Paging Thresholds:
+- Warning: Availability or latency trends indicate that the SLO may be breached.
+- Page the on-call engineer when the error budget is burning rapidly or a critical service failure occurs.
+- Page immediately for sustained 5xx errors, database unavailability or a complete service outage.
+- Review recurring alerts and adjust thresholds to reduce false alarms.
+
+5. Error Budget Policy:
+When the error budget is healthy, planned releases may continue with normal testing and monitoring. When the budget is nearly exhausted, prioritize reliability improvements, investigate incidents and limit risky releases. When the budget is exhausted, pause non-essential releases until reliability improves.
+
+6. Review:
+Review SLO performance, incidents, error budget consumption and alert effectiveness monthly. Targets are planning objectives and should be validated using production measurements.

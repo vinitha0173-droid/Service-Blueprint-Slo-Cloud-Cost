@@ -1,0 +1,47 @@
+Architecture Decision Records (ADR):
+
+ADR 1: Two-Tier Architecture:
+
+Decision: Use a web/application server and a separate database.
+Reason: Separating application logic and data storage makes the service easier to maintain, monitor and scale.
+Trade-off: Managing two components adds some operational complexity.
+
+ADR 2: Cloud Region:
+
+Decision: Deploy the application and database in the same suitable cloud region.
+Reason: This reduces network latency and simplifies communication between components.
+Trade-off: A regional outage may affect the entire service. Multi-region deployment can improve resilience but increases cost.
+
+ADR 3: Database Backups:
+
+Decision: Enable regular automated database backups and periodically test restoration.
+Reason: Backups help recover data after accidental deletion, corruption or system failure.
+Trade-off: Backup storage adds cost, and recovery takes time.
+
+ADR 4: Monitoring and Alerting:
+
+Decision: Monitor availability, p95 latency, error rate, resource utilization and database health.
+Reason: Monitoring helps identify incidents before they significantly affect users.
+Trade-off: Monitoring and log storage create additional costs.
+
+ADR 5: Security and Secrets:
+
+Decision: Use HTTPS, least-privilege access and a secure secrets-management mechanism.
+Reason: These measures help protect user data and prevent unauthorized access.
+Trade-off: Security controls require configuration and ongoing maintenance.
+
+ADR 6: Reliability and Recovery:
+
+Decision: Use the Balanced scenario as the initial planning baseline, targeting 99.5% availability, 500 ms p95 latency, an RPO of 60 minutes and an RTO of 60 minutes.
+Reason: This provides a practical starting point between cost and reliability.
+Trade-off: It offers less resilience than the Resilient scenario. Targets must be validated through testing and actual workload measurements.
+
+ADR 7: Cloud Cost Management:
+
+Decision: Set monthly budgets, billing alerts and regular cost reviews.
+Reason: These controls help identify unexpected spending and keep infrastructure costs manageable.
+Trade-off: Cost optimization must not compromise required security, backups or reliability.
+
+Review Note:
+
+These decisions are initial planning assumptions. Confirm the selected cloud provider, pricing, security requirements and recovery capabilities before production deployment.

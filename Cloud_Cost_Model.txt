@@ -1,0 +1,39 @@
+# Three-Scenario Cloud Cost Model
+
+## 1. Objective
+Estimate the monthly infrastructure and operational costs of a small two-tier web service at three traffic levels. The figures are preliminary planning estimates in Indian Rupees (INR), not confirmed cloud-provider quotations.
+
+## 2. Monthly Cost Scenarios
+
+| Cost Category | Lean (INR/month) | Balanced (INR/month) | Resilient (INR/month) |
+|---|---:|---:|---:|
+| Application compute | 800 | 2,000 | 6,000 |
+| Database and storage | 500 | 1,500 | 4,000 |
+| Network and data transfer | 300 | 1,000 | 3,000 |
+| Logging and monitoring | 200 | 700 | 2,000 |
+| Backup and recovery | 200 | 800 | 2,000 |
+| Support and contingency | 500 | 2,000 | 8,000 |
+| TOTAL | 2,500 | 8,000 | 25,000 |
+
+## 3. Traffic Assumptions
+- Lean: Approximately 500 users; a single application instance and basic database setup.
+- Balanced: Approximately 5,000 users; managed database and scalable application compute.
+- Resilient: Approximately 25,000 users; multi-zone deployment, stronger recovery and higher availability.
+
+These user counts are illustrative assumptions. Actual costs depend on requests per user, workload size, data retention and provider pricing.
+
+## 4. Cost and Reliability Trade-offs
+Lean minimizes cost but has limited redundancy and slower recovery.
+Balanced offers a practical compromise between cost, scalability and reliability.
+Resilient costs more because it includes stronger redundancy, recovery capabilities and operational overhead.
+
+## 5. Cost Controls
+- Set monthly budgets and billing alerts.
+- Review compute and database utilization.
+- Configure log retention and storage lifecycle rules.
+- Monitor network transfer costs.
+- Remove unused resources and review spending monthly.
+- Validate estimates using the selected cloud provider's pricing calculator.
+
+## 6. Conclusion
+The Balanced scenario is the proposed starting point for a small production service. Reassess the budget after collecting actual traffic, latency and resource-usage data.
